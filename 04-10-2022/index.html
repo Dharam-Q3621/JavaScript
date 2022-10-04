@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="divsec">
+
+    </div>
+    <ol class="ul">
+        <li>a <button type="button" onclick="ff()">X</button></li>
+        <li>g <button type="button" onclick="ff()">X</button></li>
+        <li>l <button type="button" onclick="ff()">X</button></li>
+        <li>e <button type="button" onclick="ff()">X</button></li>
+        <li>d <button type="button" onclick="ff()">X</button></li>
+        <li>c <button type="button" onclick="ff()">X</button></li>
+        <li>b <button type="button" onclick="ff()">X</button></li>
+    
+        </ol>
+<script>
+    var divsec=document.querySelector(".divsec");
+
+    var div=document.createElement("div");
+    div.classList.add("div");
+    // div.textContent="hello world"
+    let text=document.createTextNode("hello world");
+    div.append(text)
+    divsec.appendChild(div);
+    console.log(divsec);
+
+var olChild=document.querySelectorAll(".ul>*");
+
+
+
+function ff(){
+for(let i=0;i<olChild.length;i++){
+    var parent=olChild[i].parentElement
+    // console.log(olChild[i]);
+    olChild[i].addEventListener('click',function(){
+        olChild[i].style.display="none";
+        console.log(olChild[i].parentElement);
+    })
+}
+}
+
+</script>
+</body>
+
+</html>
