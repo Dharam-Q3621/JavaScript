@@ -77,6 +77,8 @@ function updateItem( index ) {
 update_item_btn.addEventListener( "click", function () {
     if ( !itemList.includes( input_item.value ) && input_item.value !== "" ) {
         itemList.splice( updateIndex, 1, input_item.value );
+    tostShow( "Item Updated Successfully" );
+
     }
     else if ( itemList.includes( input_item.value ) ) {
         alert( "This Item Already Available In the List !" );
@@ -86,7 +88,6 @@ update_item_btn.addEventListener( "click", function () {
     }
     update_item_btn.classList.add( "d-none" );
     add_item_btn.classList.remove( "d-none" );
-    tostShow( "Item Updated Successfully" );
     showItem();
 } );
 
