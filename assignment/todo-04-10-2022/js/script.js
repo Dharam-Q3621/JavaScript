@@ -7,7 +7,6 @@ var tostUpdate = document.querySelector( ".toast-body p:first-child" );
 
 // disabled button when input field empty
 input_item.addEventListener( "keyup", function () {
-    console.log( "dff" );
     if ( input_item.value !== "" ) {
         add_item_btn.classList.remove( "disabled" );
     } else {
@@ -18,20 +17,18 @@ input_item.addEventListener( "keyup", function () {
 // add item in array
 const itemList = [];
 add_item_btn.addEventListener( "click", function () {
-    if ( !itemList.includes( input_item.value ) && input_item.value !== "" ) {
-        itemList.push( input_item.value );
-        tostShow( "Item Added Successfully" );
-        showItem();
-        checkEmptyArray();
-    }
-    else if ( input_item.value === "" ) {
-        alert( "Please fill out This field !" );
-
-    }
-    else {
-        alert( "This Item Already Available In the List !" );
-
-    }
+            let inputValue= (input_item.value).trim();
+        if ( !itemList.includes( inputValue ) && inputValue!== "" ) {
+            itemList.push( inputValue );
+            tostShow( "Item Added Successfully" );
+            showItem();
+            checkEmptyArray();
+        } else if ( inputValue === "" ) {
+            alert( "Please fill out This field !" );
+        } 
+        else {
+            alert( "This Item Already Available In the List !" );
+        }
 } );
 
 // show all item on ui
@@ -75,15 +72,13 @@ function updateItem( index ) {
 
 // update item in array
 update_item_btn.addEventListener( "click", function () {
-    if ( !itemList.includes( input_item.value ) && input_item.value !== "" ) {
-        itemList.splice( updateIndex, 1, input_item.value );
-    tostShow( "Item Updated Successfully" );
-
-    }
-    else if ( itemList.includes( input_item.value ) ) {
+    let inputValue= (input_item.value).trim();
+    if ( !itemList.includes( inputValue) && inputValue !== "" ) {
+        itemList.splice( updateIndex, 1, inputValue);
+        tostShow( "Item Updated Successfully" );
+    } else if ( itemList.includes(inputValue ) ) {
         alert( "This Item Already Available In the List !" );
-    }
-    else {
+    } else {
         alert( "Please fill out This field !" );
     }
     update_item_btn.classList.add( "d-none" );
@@ -91,12 +86,12 @@ update_item_btn.addEventListener( "click", function () {
     showItem();
 } );
 
-// Toast 
+// Toast
 function tostShow( value ) {
-    var toastElList = [].slice.call( document.querySelectorAll( '.toast' ) )
+    var toastElList = [].slice.call( document.querySelectorAll( ".toast" ) );
     var toastList = toastElList.map( function ( toastEl ) {
-        return new bootstrap.Toast( toastEl )
-    } )
-    toastList.forEach( toast => toast.show() );
+        return new bootstrap.Toast( toastEl );
+    } );
+    toastList.forEach( ( toast ) => toast.show() );
     tostUpdate.innerHTML = value;
 }

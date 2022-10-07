@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class A{
+            constructor(name1){
+                console.log("hello world A");
+                console.log(name1);
+            }
+
+            hello(name){
+                console.log(name+ "A");
+            }
+        }
+
+        class B extends A{
+            constructor(name1){
+                super(name1);
+            }
+            hello1(name){
+                console.log(name+ "B");
+            }
+        }
+
+        // let  a=new A();
+        let b= new B("Dharam kumar");
+        b.hello("Ram");
+        b.hello1("rahim");
+
+
+    </script>
+</body>
+</html>
